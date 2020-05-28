@@ -213,7 +213,7 @@ if __name__ == '__main__':
     test_split = 0.2
     n_images = 5000
         
-    unet = segmenter(img_dims=img_dim, loss_f=dice_loss_generator(factor), metrics=[dice_coef_eval], weight_factor=factor)
+    unet = UNET(img_dims=img_dim, loss_f=dice_loss_generator(factor), metrics=[dice_coef_eval], weight_factor=factor)
     unet.train(X_train, Y_train, epochs=20, batch_size=50)
     unet.evaluate(X_test, Y_test, display_prediction=True)
     unet.save()
